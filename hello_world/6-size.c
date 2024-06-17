@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
  * main - Program entry point
+ *@a-printf to format byte size
  * Return:  0 on success. Error code otherwise
  */
 int main()
