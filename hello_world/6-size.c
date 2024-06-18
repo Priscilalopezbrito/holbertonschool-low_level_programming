@@ -1,4 +1,4 @@
-i#include <stdio.h>
+#include <stdio.h>
 /**
  * main - Program type printf
  * Return:  0 on success. Error code otherwise
