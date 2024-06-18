@@ -5,16 +5,15 @@
  */
 int main(void)
 {
-		char i;
+	char i;
 
-		for (i = 97 ; i <= 122 ; i++)
+	for (i = 97 ; i <= 122 ; i++)
+	{
+		if (i != 113 &&  i != 101)
 		{
-				if (i != 113 &&  i != 101)
-
-				{
-						putchar (i);
-				}
+			putchar (i);
 		}
-		putchar ('\n');
-		return (0);
+	}
+	putchar ('\n');
+	return (0);
 }
