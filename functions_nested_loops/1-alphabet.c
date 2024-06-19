@@ -1,12 +1,13 @@
+#include "main.h"
+/**
+ *print_alphabet- prints  the alphabeth in lowercase
+ *description- printing void value
+ */
 void print_alphabet(void)
 {
-	char str[] = "97...122";
-	int n = 0;
+	char i;
 
-	for (n = 0 ; n <24 ; n++)
-	{
-		_putchar(str[n]);
-	}
+	for (i = 'a' ; i <= 'z' ; i++)
+	_putchar(i);
 	_putchar ('\n');
-	
 }
