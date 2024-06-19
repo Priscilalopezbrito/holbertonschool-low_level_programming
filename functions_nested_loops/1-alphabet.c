@@ -1,10 +1,12 @@
 void print_alphabet(void)
 {
-	char i;
+	char str[] = "97...122";
+	int n = 0;
 
-	for (i = 97 ; i <= 122 ; i++)
+	for (n = 0 ; n <24 ; n++)
 	{
-		_putchar (i);
+		_putchar(str[n]);
 	}
 	_putchar ('\n');
+	
 }
