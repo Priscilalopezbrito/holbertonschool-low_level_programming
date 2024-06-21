@@ -8,6 +8,11 @@ void print_triangle(int size)
 {
 	int t, s, p;
 
+	if (size <= 0)
+	{
+		_putchar('\n');
+	}
+
 	for (t = 1 ; t <= size ; t++)
 	{
 		for (s = 0 ; s < size - t ; s++)
