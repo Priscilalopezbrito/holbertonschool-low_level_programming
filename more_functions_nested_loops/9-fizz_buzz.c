@@ -1,9 +1,8 @@
 #include <stdio.h>
 /**
- * main - Program entry point
- * Return:  0 on success. Error code otherwise
+ * fizzbuzz - Prints the numbers from 1 to 100
  */
-int main(void)
+void fizzbuzz(void)
 {
 	int n;
 
@@ -28,7 +27,15 @@ int main(void)
 		printf(" ");
 	}
 	printf("\n");
-	return (0);
+}
+/**
+ *main- entry point
+ *Return: 0 on sucess.
+ */
+int main(void)
+{
+fizzbuzz();
+return (0);
 }
 
 
