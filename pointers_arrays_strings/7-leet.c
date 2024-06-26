@@ -6,30 +6,25 @@
  */
 char *leet(char *str)
 {
+	char leet[260] = {0};
 	int i;
 
+	leet['a'] = '4';
+	leet['A'] = '4';
+	leet['e'] = '3';
+	leet['E'] = '3';
+	leet['o'] = '0';
+	leet['O'] = '0';
+	leet['t'] = '7';
+	leet['T'] = '7';
+	leet['l'] = '1';
+	leet['L'] = '1';
 	for (i = 0; str[i] != '\0'; i++)
 	{
-	if (str[i] == 'a' || str[i] == 'A')
-	{
-		str[i] = '4';
-	}
-	else if (str[i] == 'e' || str[i] == 'E')
-	{
-		str[i] = '3';
-	}
-	else if (str[i] == 'o' || str[i] == 'O')
-	{
-		str[i] = '0';
-	}
-	else if (str[i] == 't' || str[i] == 'T')
-	{
-		str[i] = '7';
-	}
-	else if (str[i] == 'l' || str[i] == 'L')
-	{
-		str[i] = '1';
-	}
+		if (leet[(unsigned char) str[i]])
+		{
+			str[i] = leet[(unsigned char) str[i]];
+		}
 	}
 	return (str);
 }
