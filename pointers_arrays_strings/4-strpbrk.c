@@ -9,10 +9,11 @@ char *_strpbrk(char *s, char *accept)
 {
 	while (*s)
 	{
-		if (_strchr(accept, *s++))
+		if (_strchr((char *)accept, *s))
 		{
 			return (s);
 		}
+		s++;
 	}
 	return (0);
 }
@@ -25,13 +26,18 @@ char *_strpbrk(char *s, char *accept)
  */
 char *_strchr(char *s, char c)
 {
-	for (; *s != '\0' ; s++)
+	while (*s != '\0')
 	{
-		while (*s == c)
+		if (*s == c)
 		{
 			return (s);
 		}
+		s++;
 	}
-	return (s);
-	return (0);
+	if (c == '\0')
+	{
+		return (s);
+	}
+	return ('\0');
+
 }
