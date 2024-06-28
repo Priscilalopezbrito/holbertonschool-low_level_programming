@@ -7,14 +7,19 @@
  */
 char *_strchr(char *s, char c)
 {
-	for (; *s != '\0' ; s++)
+	while (*s != '\0')
 	{
-		while (*s == c)
+		if (*s == c)
 		{
 			return (s);
 		}
+		s++;
 	}
-	return (s);
-	return (0);
+	if (c == '\0')
+	{
+		return (s);
+	}
+	return ('\0');
+
 }
 
