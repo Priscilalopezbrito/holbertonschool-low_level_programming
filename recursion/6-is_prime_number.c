@@ -1,4 +1,29 @@
 #include "main.h"
+
+int _prime_check(int n, int i);
+
+/**
+ * _prime_check- check
+ * @n: value n
+ * @i: int
+ * Return: 1 0
+ */
+int _prime_check(int n, int i)
+{
+	if (n % i == 0 && i != n)
+	{
+		return (0);
+	}
+	if (i + i > n)
+	{
+		return (1);
+	}
+	else
+	{
+		return (_prime_check(n, i + 1));
+	}
+}
+
 /**
  * is_prime_number- function that returns 1 if the
  * input integer is a prime number,
@@ -8,18 +33,12 @@
  */
 int is_prime_number(int n)
 {
-	int p;
-
 	if (n < 2)
 	{
 		return (0);
 	}
-	for (p = 2; p * p <= n; p++)
+	else
 	{
-		if (n % p == 0)
-		{
-			return (0);
-		}
+	return (_prime_check(n, 2));
 	}
-	return (1);
 }
