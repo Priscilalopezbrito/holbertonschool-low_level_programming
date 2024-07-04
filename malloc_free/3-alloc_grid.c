@@ -13,6 +13,10 @@ int **alloc_grid(int width, int height)
 	int **ptp;
 	int i;
 
+	if (width <= 0 || height <= 0)
+	{
+		return (NULL);
+	}
 	/*malloc*/
 	ptp = (int **)malloc(width * sizeof(int *));
 	/*return NULL on failure*/
@@ -23,10 +27,6 @@ int **alloc_grid(int width, int height)
 	for (i = 0; i < width; i++)
 	{
 		ptp[i] = (int *)malloc(height * sizeof(int));
-		if (ptp[i] == NULL)
-		{
-			return (NULL);
-		}
 	}
 	return (ptp);
 }
