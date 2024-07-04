@@ -8,17 +8,23 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	int *arr;
+	unsigned int *arr;
 
-	/*allocates memory using malloc*/
-	arr = (int *)malloc(b * sizeof(int));
-	/*if malloc fails, the malloc_checked
+	/**
+	 * allocates memory using malloc
+	 */
+	arr = malloc(b * sizeof(*arr));
+	/**
+	 * if malloc fails, the malloc_checked
 	 * function should cause normal process
-	 * termination with a status value of 98*/
+	 * termination with a status value of 98
+	 */
 	if (arr == NULL)
 	{
 		exit(98);
 	}
-	/*Returns a pointer to the allocated memory*/
+	/**
+	 * Returns a pointer to the allocated memory
+	 */
 	return (arr);
 }
