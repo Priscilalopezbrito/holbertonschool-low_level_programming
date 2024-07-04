@@ -18,9 +18,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	size_t _s1, _s2, num, len;
 	char *str;
 
+	/**if NULL is passed, treat it as an empty string*/
+	if (s1 == NULL)
+	{
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+	/**length of a string*/
 	_s1 = _strlen(s1);
 	_s2 = _strlen(s2);
-
+	/**If n is >= length of s2 then use entire string s2*/
 	if (n >= _s2)
 	{
 		num = _s2;
@@ -30,8 +40,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		num = n;
 	}
 	len = _s1 + num;
-
+	/**malloc*/
 	str = (char *)malloc(len + 1);
+	/**If the function fails, it should return NULL*/
 	if (str == NULL)
 	{
 		return (NULL);
@@ -40,7 +51,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	_strncat(str, s2, num);/*concatenates strings*/
 	str[len] = '\0';
 	return (str);
-
 }
 
 
