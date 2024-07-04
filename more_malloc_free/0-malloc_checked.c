@@ -13,7 +13,7 @@ void *malloc_checked(unsigned int b)
 	/**
 	 * allocates memory using malloc
 	 */
-	arr = malloc(b * sizeof(*arr));
+	arr = malloc(b);/**main already does sizeof*/
 	/**
 	 * if malloc fails, the malloc_checked
 	 * function should cause normal process
@@ -23,8 +23,5 @@ void *malloc_checked(unsigned int b)
 	{
 		exit(98);
 	}
-	/**
-	 * Returns a pointer to the allocated memory
-	 */
 	return (arr);
 }
