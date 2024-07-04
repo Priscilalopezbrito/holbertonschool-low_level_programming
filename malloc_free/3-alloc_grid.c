@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
 /**
@@ -28,9 +27,9 @@ int **alloc_grid(int width, int height)
 
 
 
-	for (i = 0; i < width; i++)
+	for (i = 0; i < height; i++)
 	{
-		ptp[i] = (int *)malloc(height * sizeof(int));
+		ptp[i] = (int *)malloc(width * sizeof(int));
 		if (ptp[i] == NULL)
 		{
 			for (j = 0; j < i; j++)
@@ -40,7 +39,7 @@ int **alloc_grid(int width, int height)
 			free(ptp);
 			return (NULL);
 		}
-		for (j = 0; j < height; j++)
+		for (j = 0; j < width; j++)
 		{
 			ptp[i][j] = 0;
 		}
