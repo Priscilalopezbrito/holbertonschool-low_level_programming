@@ -12,7 +12,7 @@ char *_memset(char *s, char b, unsigned int n);
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p;
-	size_t t;
+	unsigned int t;
 
 	t = nmemb * size;
 	/**If nmemb or size is 0, then _calloc returns NULL*/
