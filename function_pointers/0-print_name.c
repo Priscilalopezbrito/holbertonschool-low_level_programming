@@ -12,7 +12,10 @@ int _putchar(char c);
  */
 void print_name(char *name, void (*f)(char *))
 {
-	f(name);
+	if (name != NULL && f != NULL)
+	{
+		f(name);
+	}
 }
 
 /**
@@ -21,11 +24,7 @@ void print_name(char *name, void (*f)(char *))
  */
 void pname(char *name)
 {
-	while (*name)
-	{
 	_putchar(*name);
-	name++;
-	}
 	_putchar('\n');
 }
 
