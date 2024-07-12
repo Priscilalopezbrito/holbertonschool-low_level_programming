@@ -2,15 +2,20 @@
 #include <stdlib.h>
 #include "3-calc.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-	op_add(1, 1);
-	op_sub(10, 4);
-	op_mul(5, 6);
-	op_div(10, 2);
-	op_div(10, 0);
-	op_mod(1024, 98);
-	op_mod(1024, 0);
+	int num1;
+	int num2;
 
-	return (0);
+	num1 = atoi(argv[1]);
+	num2 = atoi(arg[3]);
+	if (arg != 4)
+	{
+		printf("Error");
+		exit (98);
+	}
+	else
+	{
+		return ((get_op_func(argv[2])(num1, num2));
+	}
 }

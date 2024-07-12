@@ -48,7 +48,7 @@ int op_div(int a, int b)
 	if (b == 0)
 	{
 		printf("Error\n");
-		return (100);
+		exit (100);
 	}
 	else
 	{
@@ -66,7 +66,7 @@ int op_mod(int a, int b)
 	if (b == 0)
 	{
 		printf("Error\n");
-		return (100);
+		exit (100);
 	}
 	else
 	{
@@ -74,21 +74,3 @@ int op_mod(int a, int b)
 	}
 }
 
-int main ()
-{
-	printf("%d\n", op_add(1,1));
-	printf("\n");
-	printf("%d\n", op_sub(10, 4));
-	printf("\n");
-	printf("%d\n", op_mul(5,6));
-	printf("\n");
-	printf("%d\n", op_div(10,2));
-	printf("\n");
-	printf("%d\n", op_div(10, 0));
-	printf("\n");
-	printf("%d\n", op_mod(1024,98));
-	printf("\n");
-	printf("%d\n", op_mod(1024, 0));
-
-	return (0);
-}
