@@ -6,16 +6,24 @@ int main(int argc, char *argv[])
 {
 	int num1;
 	int num2;
+	char operator;
 
 	num1 = atoi(argv[1]);
-	num2 = atoi(arg[3]);
-	if (arg != 4)
+	num2 = atoi(argv[3]);
+	operator = argv[2][0];
+
+	if (argc != 4)
 	{
-		printf("Error");
-		exit (98);
+		printf("Error\n");
+		exit(98);
 	}
-	else
+
+	if (operator != '+' && operator != '-' && operator != '*' && operator != '/' && operator != '%')
 	{
-		return ((get_op_func(argv[2])(num1, num2));
+		printf("Error\n");
+		exit (99);
 	}
+	
+	return ((get_op_func(argv[2])(num1, num2)));
+	
 }
