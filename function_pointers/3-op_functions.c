@@ -15,8 +15,10 @@ int op_mod(int a, int b);
  */
 int op_add(int a, int b)
 {
-	add = a + b;
-	return (add);
+	int calc;
+
+	calc = a + b;
+	return (calc);
 }
 /**
  *op_sub- returns the sub of a and b
@@ -26,8 +28,10 @@ int op_add(int a, int b)
  */
 int op_sub(int a, int b)
 {
-	sub = a - b;
-	return (sub);
+	int calc;
+
+	calc = a - b;
+	return (calc);
 }
 /**
  *op_mul- returns the mul of a and b
@@ -37,8 +41,10 @@ int op_sub(int a, int b)
  */
 int op_mul(int a, int b)
 {
-	mul = a * b;
-	return (mul);
+	int calc;
+
+	calc = a * b;
+	return (calc);
 }
 /**
  *op_div- returns the div of a and b
@@ -48,12 +54,15 @@ int op_mul(int a, int b)
  */
 int op_div(int a, int b)
 {
-	dev = a / b;
+	int calc;
+
+	calc = a / b;
 	if (b == 0)
 	{
 		printf("Error\n");
 		return (100);
 	}
+	return (calc);
 }
 /**
  *op_mod- returns the mod of a and b
@@ -63,10 +72,13 @@ int op_div(int a, int b)
  */
 int op_mod(int a, int b)
 {
-	mod = a % b;
+	int calc;
+
+	calc = a % b;
 	if (b == 0)
 	{
 		printf("Error\n");
 		return (100);
 	}
+	return (calc);
 }
