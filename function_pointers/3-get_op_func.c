@@ -12,18 +12,31 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
+	/*array of operators*/
 	op_t ops[] = {{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
 		{"/", op_div},
 		{"%", op_mod},
 		{NULL, NULL}};
+	/*index variable*/
 	int i;
-
-	while (ops[i].op != NULL && ops[i].op != s)
+	/*initialize index variable*/
+	i = 0;
+	/*find matching operator in array
+	 *if not null increment
+	 *if operator dont match string increment
+	 * */
+	while (ops[i].op != NULL && *(ops[i].op) != *s)
 	{
 		i++;
 	}
-	
+	/*if index of array struct op
+	 * is null, return null*/
+	if (ops[i].op == NULL)
+	{
+		return (NULL);
+	}
+	/*return function point of index*/
 	return (ops[i].f);
 }
