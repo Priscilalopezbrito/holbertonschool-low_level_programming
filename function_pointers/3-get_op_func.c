@@ -23,16 +23,19 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 	/*initialize index variable*/
 	i = 0;
-	/*find matching operator in array
+	/*
+	 * find matching operator in array
 	 *if not null increment
 	 *if operator dont match string increment
-	 * */
+	 */
 	while (ops[i].op != NULL && *(ops[i].op) != *s)
 	{
 		i++;
 	}
-	/*if index of array struct op
-	 * is null, return null*/
+	/*
+	 * if index of array struct op
+	 * is null, return null
+	 */
 	if (ops[i].op == NULL)
 	{
 		return (NULL);
