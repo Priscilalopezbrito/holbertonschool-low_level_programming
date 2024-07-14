@@ -10,25 +10,19 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list list;
-	unsigned int i, j;
+	unsigned int i;
+	int num;
 
-/*access variadic function arguments*/
 	va_start(list, n);
 
-	for (i = 0; i < (unsigned int)*separator ; i++)
+	for (i = 0; i < n ; i++)
 	{
-		j = va_arg(list, unsigned int);
-		printf("%u", j);
-
-		if (separator != NULL && i > 0)
+		num = va_arg(list, int);
+		printf("%d", num);
+		if (separator != NULL && i < n - 1)
 		{
 			printf("%s", separator);
 		}
-		if (separator == NULL)
-		{
-			printf(" ");
-		}
-		
 	}
 	va_end(list);
 	printf("\n");
