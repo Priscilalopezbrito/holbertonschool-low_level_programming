@@ -6,46 +6,45 @@
  *print_all- prints anything, followed by a new line
  *@format: string to be printed between numbers
  */
+/*
+ */
+struct print_t
+{
+char form;
+void (*p)(va_list *);
+};
+
+void printchar(va_list *list);
+
+void printchar(va_list *list)
+{
+	char c;
+	c = va_arg(*list, int);
+	printf("%c, ", c);
+}
+
 void print_all(const char * const format, ...)
 {
 	va_list list;
-	int ind;
 
-	char c;
-	int i;
-	float f;
-	const char *s;
+	struct print_t pnt[] = {{'c', printchar}};
+	const char *p;
+	size_t i;
+
 	va_start(list, format);
+	p = format;
 
-	while (format && format[ind])
+    while (*p)
 	{
-		if (format[ind] == 'c')
+		for (i = 0; i < sizeof(pnt) / sizeof(pnt[0]); i++)
 		{
-			c = va_arg(list, int);
-			printf("%d, ", c);
-		}
-		else if (format[ind] == 'i')
-		{
-			i = va_arg(list, int);
-			printf("%d, ", i);
-		}
-		else if (format[ind] == 'f')
-		{
-			f = va_arg(list, int);
-			printf("%f, ", f);
-		}
-		else if (format[ind] == 's')
-		{ s = va_arg(list, char *);
-			if (s == NULL)
+			if (*p == pnt[i].form)
 			{
-				printf("(nil)");
-			}
-			else
-			{
-				printf("%s ", s);
+				pnt[i].p(&list);
+				break;
 			}
 		}
-		ind++;
+		p++;
 	}
 	va_end(list);
 	printf("\n");
