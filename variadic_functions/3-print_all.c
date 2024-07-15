@@ -19,12 +19,34 @@ void print_all(const char * const format, ...)
 
 	while (format && format[ind])
 	{
-		if (format [ind] == 'c')
+		if (format[ind] == 'c')
 		{
 			c = va_arg(list, int);
-			printf("%d", c);
+			printf("%d, ", c);
+		}
+		else if (format[ind] == 'i')
+		{
+			i = va_arg(list, int);
+			printf("%d, ", i);
+		}
+		else if (format[ind] == 'f')
+		{
+			f = va_arg(list, int);
+			printf("%f, ", f);
+		}
+		else if (format[ind] == 's')
+		{ s = va_arg(list, char *);
+			if (s == NULL)
+			{
+				printf("(nil)");
+			}
+			else
+			{
+				printf("%s ", s);
+			}
 		}
 		ind++;
 	}
 	va_end(list);
+	printf("\n");
 }
