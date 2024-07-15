@@ -10,14 +10,21 @@ void print_all(const char * const format, ...)
 {
 	va_list list;
 	int ind;
+
 	char c;
 	int i;
 	float f;
-	char *s;
-
+	const char *s;
 	va_start(list, format);
+
 	while (format && format[ind])
 	{
-		if (
+		if (format [ind] == 'c')
+		{
+			c = va_arg(list, int);
+			printf("%d", c);
+		}
+		ind++;
 	}
+	va_end(list);
 }
