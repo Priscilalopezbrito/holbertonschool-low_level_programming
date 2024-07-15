@@ -2,27 +2,26 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "variadic_functions.h"
+/*
+ *printchar- prints char
+ *@list: list of types
+ */
+void printchar(va_list *list);
+
+void printchar(va_list *list)
+{
+	char c;
+
+	c = va_arg(*list, int);
+	printf("%c, ", c);
+}
+
 /**
  *print_all- prints anything, followed by a new line
  *@format: string to be printed between numbers
  */
 /*
  */
-struct print_t
-{
-char form;
-void (*p)(va_list *);
-};
-
-void printchar(va_list *list);
-
-void printchar(va_list *list)
-{
-	char c;
-	c = va_arg(*list, int);
-	printf("%c, ", c);
-}
-
 void print_all(const char * const format, ...)
 {
 	va_list list;
@@ -34,15 +33,17 @@ void print_all(const char * const format, ...)
 	va_start(list, format);
 	p = format;
 
-    while (*p)
+	while (*p)
 	{
-		for (i = 0; i < sizeof(pnt) / sizeof(pnt[0]); i++)
+		i = 0;
+		while (i < sizeof(pnt) / sizeof(pnt[0]))
 		{
 			if (*p == pnt[i].form)
 			{
 				pnt[i].p(&list);
 				break;
 			}
+			i++;
 		}
 		p++;
 	}
