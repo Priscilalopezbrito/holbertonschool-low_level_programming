@@ -10,16 +10,18 @@
  *that corresponds to the format specifier given
  *as a parameter
  */
-char (*get_op_function(char *s))(char)
+int (*get_format_func(char *str))(va_list)
 {
 	/*array of format specifier structures*/
-	struct_name arr[] = {
+	printf_function arr[] =
+	{
 		{"c", print_char},
 		{"s", print_string},
-		{NULL, NULL}};
+		{NULL, NULL}
+	};
 
-	int i;/*index to iterate*/
-	i = 0;/*start at 0*/
+	int index;/*index to iterate*/
+	index = 0;/*start at 0*/
 	
 	/*
 	 * Find the string that matches
@@ -27,20 +29,13 @@ char (*get_op_function(char *s))(char)
 	 * Increment if not null and increment
 	 * if is not a match.
 	 */
-	while (arr[i].pf != NULL && *(arr[i].pf) != *s)
+	while (arr[index].format_specifier != NULL)
 	{
-		i++;
+		if (arr[index].format_specifier == str)/*pf[0]??? s[0]??*/
+		{
+			return (arr[index].funcpoint);
+		}
+		index++;
 	}
-	/*
-	 * If index is NULL return NULL
-	 */
-	if (arr[i].pf == NULL)
-	{
 		return (NULL);
-	}
-	/*
-	 * return function pointer
-	 * from array of struct
-	 */
-	return (arr[i].f);
 }

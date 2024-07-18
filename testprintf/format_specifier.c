@@ -2,13 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char print_char(char c)
+int  print_char(char c)
 {
-	return (c);
+	putchar(c);
 }
 
-char print_string(char s)
+int  print_string(char *s)
 {
-	return (s);
+	while (*s)
+	{
+		putchar(*s++);
+	}
 }
 

@@ -1,15 +1,15 @@
 #ifndef P
 #define P
 int _printf(const char *format, ...);
-char (*get_op_function(char *s))(char);
+int (*get_op_function(char *s))(va_list);/**/
 
-typedef struct print_f
+typedef struct prinf_function
 {
-char *pf;
-char (*f)(char);
-} struct_name;
+char *format_specifier;
+int (*funcpoint)(va_list);
+} printf_function;
 
-char print_char(char);
-char print_string(char);
+int  print_char(char c);
+int  print_string(char *s);
 
 #endif
