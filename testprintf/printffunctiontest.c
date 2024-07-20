@@ -10,29 +10,48 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;/*type for iterating arguments*/
-	int i;
-	
+	va_list args;
+	int i, count;
+	count = 0;
 	va_start(args, format);
 
-	
-	for (i = 0; s[i] != NULL; i++)//fix
-	{
-		if (s[i] == '%')
-		{
-			format++;//evaluar i+1 ?????
-		}
-		if (*format =='%'')
-		{
-			putchar('%')
-		}
-		//else putchar
-		i++;
 
-	}
-	va_arg(args, int);//for numbers
-	va_arg(args, char *);//for string
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		
+		if (format[i] == '%')/*if % is found*/
+		{
+			/*Handles if % is followed by char %. Example:%% */
+			if (format[i] == '%' && format[i + 1] == '%')
+			{
+				count = count + _putchar('%');/*print %*/
+				i = i + 2;/* % % _ */
+			}
+			if (format[i + 1] != '\0')/* if % + 1 is not \0 */
+			{
+				/*calling get_op_function to evaluate format specifier*/
+				int (*funcpoint)(va_list) = get_op_function(format[i + 1]);
+				if (funcpoint == NULL)/*{NULL, NULL}*/
+				{
+					count = count + _putchar(format[i]);/**/
+				}
+				else
+				{
+					count = count + funcpoint(args);/**/
+					i++;
+				}
+			}/*Ends condition, if char is not fount in struct array...*/
+			else
+			{
+				count = count + _putchar('%');
+			}
+		}/*Ends if format == % condition.*/
+		
+		else/**/
+		{
+			count = count + _putchar(format[i]);
+		}
+	}/*Ends for loop scope */
 	va_end(args);
-	
-	return (0);
+	return (count);/*Returns: the number of characters printed*/
 }

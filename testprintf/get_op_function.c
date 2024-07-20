@@ -10,15 +10,15 @@
  *that corresponds to the format specifier given
  *as a parameter
  */
-int (*get_format_func(char *str))(va_list)
+int (*get_op_function(char str))(va_list)
 {
 	/*array of format specifier structures*/
-	printf_function arr[] =
-	{
+	 print_fs arr[] ={
 		{"c", print_char},
 		{"s", print_string},
-		{NULL, NULL}
-	};
+		{"i", print_i_d},
+		{"d", print_i_d},
+		{NULL, NULL}};
 
 	int index;/*index to iterate*/
 	index = 0;/*start at 0*/
@@ -26,16 +26,17 @@ int (*get_format_func(char *str))(va_list)
 	/*
 	 * Find the string that matches
 	 * the character pointed to by s.
-	 * Increment if not null and increment
-	 * if is not a match.
+	 * if is not a match return NULL.
 	 */
-	while (arr[index].format_specifier != NULL)
+	while (arr[index].format_specifier != NULL)/*If not NULL*/
 	{
-		if (arr[index].format_specifier == str)/*pf[0]??? s[0]??*/
+		if (* arr[index].format_specifier == str)/*If index format specifier match  str*/
 		{
-			return (arr[index].funcpoint);
+			return (arr[index].funcpoint);/*Execute function struct array*/
 		}
-		index++;
+		index++;/*increment ultil match*/
 	}
-		return (NULL);
+		return (NULL);/*If NULL retorna NULL*/
 }
+
+

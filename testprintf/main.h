@@ -1,15 +1,23 @@
 #ifndef P
 #define P
-int _printf(const char *format, ...);
-int (*get_op_function(char *s))(va_list);/**/
+#include <stdarg.h>
 
-typedef struct prinf_function
+int _printf(const char *format, ...);
+
+int (*get_op_function(char s))(va_list);
+
+typedef struct pf
 {
 char *format_specifier;
 int (*funcpoint)(va_list);
-} printf_function;
+} print_fs;
 
-int  print_char(char c);
-int  print_string(char *s);
+int print_char(va_list);
+
+int print_string(va_list);
+
+int print_i_d(va_list);
+
+int _putchar(char c);
 
 #endif
