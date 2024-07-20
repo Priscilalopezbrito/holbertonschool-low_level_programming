@@ -93,30 +93,3 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
-
-
-
-
-/*int print_i_d(va_list args)
-{
-int max = 2147483647;
-int min = - 2147483647 -1;
-
-int  _number = va_arg(args, int );
-int len = 0;
-
-	while (_number)
-	{
-		_putchar(_number);
-		_number++;
-	}
-	if (_number >= min || _number <= max)
-	{
-		return(len);
-	}
-	else
-	{
-		return (-1);
-	}
-}
-*/
