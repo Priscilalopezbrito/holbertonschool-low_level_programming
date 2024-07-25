@@ -18,7 +18,7 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	if (newNode == NULL)/*if fail, return null and free memory*/
 	{
-		/*free(newNode);*free malloc*/
+		free(newNode);
 		return (NULL);
 	}
 	/*new node data*/
