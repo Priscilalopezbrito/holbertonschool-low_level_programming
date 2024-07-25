@@ -9,12 +9,13 @@
 
 void free_list(list_t *head)
 {
-	list_t *pointer = head;/*points at first node of list */
+	list_t *currentNode = head;
+	list_t *nextNode;
 
-	while (pointer != NULL)/*loop to delete the list*/
+	while (currentNode != NULL)
 	{
-		pointer = pointer->next;
-		free(head);
-		head = pointer;
+		nextNode = currentNode->next;
+		free(currentNode);
+		currentNode = nextNode;
 	}
 }
