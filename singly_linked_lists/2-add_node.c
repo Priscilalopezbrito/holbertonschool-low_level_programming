@@ -15,7 +15,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (newNode == NULL)
 	{
-		free(newNode);
+		/*free(newNode);*/
 		return (NULL);
 	}
 	/*strdup returns a pointer to a
