@@ -15,18 +15,17 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (newNode == NULL)
 	{
-		free (newNode);
+		free(newNode);
 		return (NULL);
 	}
 		newNode->str = strdup(str);
-		/*new->len = len;*/
 		newNode->next = NULL;
-
+		/*get size of string for newNode len*/
 		for (i = 0; str[i] != '\0'; i++)
 		{
 			newNode->len = i + 1;
 		}
-		newNode->next = *head; /*head;*updates link part of the node*/
+		newNode->next = *head; /*updates link part of the node*/
 		*head = newNode;/*points to new node*/
 
 	return (newNode);
