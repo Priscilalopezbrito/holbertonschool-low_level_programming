@@ -15,9 +15,13 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (newNode == NULL)
 	{
-		free(newNode);
+		/*free(newNode);*/
 		return (NULL);
 	}
+	/*strdup returns a pointer to a
+	 * null-terminated string,
+	 * which is a duplicate of the
+	 * string pointed to by str*/
 		newNode->str = strdup(str);
 		newNode->next = NULL;
 		/*get size of string for newNode len*/
